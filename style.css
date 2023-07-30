@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+}
+
+.border {
+    border: 2px solid green;
+}
+
+/* USED TO ALLIGN ROWS AND COLUMNS */
+.row {
+    text-align: center;
+}
+
+.col {
+    border-radius: 25px;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+/* BACKGROUND COLOR */
+
+body {
+    background-color: #333333;
+}
+
+/* USED TO CENTER IMAGES (NOT TEXT) */
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* FONT STYLING & COLORS */
+.data-img {
+    width: 200px;
+    height: 200px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+.red {
+    color: #ED2938;
+}
+
+.orange {
+    color: #FF8C01
+}
+
+.white {
+    color: white;
+}
+
+
+/* HEADER STYLING DATA */
+
+.header {
+    background: black;
+    display: flex;
+}
+
+/* SENSOR DATA STYLING */
+
+.data-styling {
+    width: 325px;
+    height: 325px;
+    margin: 15px;
+    vertical-align: middle;
+    background-color: #C62C2C;
+}
+
+.test {
+    display: inline-flex;
+    justify-content: space-between;
+    text-align: center;
+    vertical-align: middle;
+    width: 500px;
+}
+
+/* REPORT STYLING */
+
+.report-styling {
+    width: 600px;
+    height: 690px;
+    margin: 15px;
+    vertical-align: middle;
+    background-color: #C62C2C;
+}
+
+.text {
+    background-color: white;  
+    margin-left: 5%;
+    width: 90%; 
+}
+
+.report-img {
+    margin-top: 10%;
+    margin-left: 10%;
+    height: 590px;
+    width: 500px;
+}

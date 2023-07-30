@@ -1,0 +1,200 @@
+<script>team_name = "bearclasp"</script>
+<script type="module" src="communication.js"></script>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home Page</title>
+        <link rel="icon" href="images/favicon.png">
+        <link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+
+        <!-- HEADER -->
+        <div class="header">
+            <h1 class="red center">BEAR<span class="white">CLASP CONTROL CENTER</span></h1>
+        </div>
+
+        <!-- SENSORS DATA -->
+
+        <!-- TEMPERATURE AND GAS DATA -->
+        <div class="row">
+            <div class="col data-styling">
+                <span class="center">
+                    <h2 class="orange">TEMPERATURE <span class="white">SENSOR</span></h2>
+                    <img class="data-img" src="images/normal_temp.png">
+                    <p><span id="temperature"></span> C</p>
+                </span>
+            </div>
+            <div class="col data-styling">
+                <span class="center">
+                    <h2 class="orange">GAS <span class="white">SENSOR</span></h2>
+                    <img class="data-img" src="images/hazard_gas.png">
+                    <p id="gas"></p>
+                </span>
+            </div>
+        </div>
+
+        <!-- HUMIDITY & ULTRASONIC DATA -->
+        <div class="row">
+            <div class="col data-styling">
+                <span class="center">
+                    <h2 class="orange">HUMIDITY <span class="white">SENSOR</span></h2>
+                    <img class="data-img  mg" src="images/humidity.jpg">
+                    <p><span id="humidity"></span>%</p>
+                </span>
+            </div>
+            <div class="col data-styling">
+                <span class="center">
+                    <h2 class="orange">ULTRASONIC <span class="white">SENSOR</span></h2>
+                    <img class="data-img" src="images/ultrasonic.jpg">
+                    <p><span id="ultrasonic"></span> cm</p>
+                </span>
+            </div>
+        </div>
+
+        <!-- TECHNICAL REPORT -->
+        <div class="header">
+            <h1 class="red center">TECHNICAL <span class="white">REPORT</span></h1>
+        </div>
+
+        <!-- CODE & SENSORS -->
+        <div class="row">
+            <div class="col report-styling">
+                <span class="center">
+                    <h2 class="orange">CODE <span class="white">& SENSORS</span></h2>
+                    <p style="text-align: justify" class="text">
+                        On our gauntlet, we have a gas sensor, an ultrasonic sensor and a temperature and humidity sensor. 
+                        We chose these three sensors since they are all important for rescuing Bruin engineers:
+                        <br>
+                        - The gas sensor will detect potential gas leak or unscented toxic air to protect the E-hero.
+                        <br>
+                        - The ultrasonic sensor will help the E-hero navigate in the dark and locate the Bruin engineers as well. 
+                        <br>
+                        - The Temperature and humidity sensor will help the E-hero avoid heat or even fire. 
+                        <br>
+                        <br>
+                        We have properly placed comments throughout the code to increase ease of finding certain parts and some spaces in 
+                        between so the code does not look clustered and increase readibility. Most components work together well except the 
+                        OLED screen and the temperature/humidity sensor. Setting up the temp/humid sensor the usual way from library AM232X 
+                        introduced delay issue which affected the ability to transfer data in real time to the website. The solution was to 
+                        use AM2320 library and Wire library. It is also worth noted that there needs to be some delay (200 microseconds) 
+                        between getting the humidity and getting the temperature so that none or both of them would display "nan" as a result. 
+                        <br>
+                        <br>
+                        With the issues mentioned above, we first checked whether the wiring is loose since it's the most common yet easy 
+                        issue to fix. Then, if that's not the solution, we track the code that was causing the error, try to reproduce it 
+                        and fix it accordingly. 
+                        <br>
+                        - Iteration 1: Added gas sensor, ultrasonic sensor, oled screen. Temp/humid sensor did not work with the oled screen.
+                        <br>
+                        - Iteration 2: Changed to AM2320 library, the temp/humid sensor finally worked with the oled. 
+                        <br>
+                        - Iteration 3: Added NEOPIXEL ring LED to work with several sensor functions. The ring now prints different light 
+                        color on specific pixels based on the sensors' data.
+                       <br>
+                        For the circuit, we often had trouble getting the sensors to work due to poor wires management so the pins tend to 
+                        disconnect. The solution was to use electric tape to manage the wires and handle the circuit more carefully. 
+                    </p>
+                </span> 
+            </div>
+            <div class="col report-styling">
+                    <img class="report-img" src="images/ac1.png">
+            </div>
+        </div>
+        <!-- CODE & SENSOR IMAGES -->
+        <div class="row">
+            <div class="col report-styling">
+                <img class="report-img"2 src="images/ac2.png">
+            </div>
+            <div class="col report-styling">
+                <img class="report-img" src="images/ac3.png">
+            </div>
+        </div>
+
+        <!-- WEBSITE -->
+        <div class="row">
+            <div class="col report-styling">
+                <span class="center">
+                    <h2 class="white">THE <span class="orange">WEBSITE</span></h2>
+                    <p style="text-align: justify" class="text">
+                        The website was also an important part of our guantlet as we had to ensure its functionality in order 
+                        to communicate with our E-Hero. There were multiple iterations and ideas that we went through until we 
+                        ultimately decided to go with the design you currently see.
+                        <br>
+                        <br>
+                        An early issue we had when designing this website was getting everything to line up properly. 
+                        Before, some textboxes would overlap with images and other textboxes. In order to solve this issue, we designed the website
+                        in a grid-like pattern. We created two CSS classes called "row" and "col." As the name suggests, each would control
+                        aspects of each row and column respectively. This allowed us to more easily allign images and text. The picture to the right
+                        demonstrates this. The green lines represent the grid-like structure of our website.
+                        <br>
+                        <br>
+                        Another problem that we encountered was adjusting for different sized columns. If you look at sensor
+                        data above, you will see that the boxes are different sizes to the boxes here in the technical report.
+                        This problem occured from including styling attributes in the previously mentioned "row" and "col" classes.
+                        In order to fix this issue, we split the formatting from the styling attributes. "row" and "col" would simply
+                        position the elements in the desired location. We added two new CSS classes called "data-styling" and
+                        "report-styling." This not only allowed us to have different sized boxes, but also change different attributes
+                        such as color and font size. The two images below showcase these how we separated these classes.
+                    </p>
+                </span> 
+            </div>
+            <div class="col report-styling">
+                <span class="">
+                    <img class="report-img" src="images/website1.png">
+                </span>
+            </div>
+        </div>
+        <!-- WEBSITE CODE IMAGES -->
+        <div class="row">
+            <div class="col report-styling">
+                <img class="report-img"2 src="images/website2.png">
+            </div>
+            <div class="col report-styling">
+                <img class="report-img" src="images/website3.png">
+            </div>
+        </div>
+
+        <!-- CAD -->
+        <div class="row">
+            <div class="col report-styling">
+                <span class="center">
+                    <h2 class="orange">CAD<span class="white"> PROCESS</span></h2>
+                    <p style="text-align: justify" class="text">
+                        We first tried to focus on digits and hands/claws present at the front of the final design. 
+                        This has taken a lot of resources and constant reiterations to make the joints and the holding 
+                        pin functional as desired. There were problems such as the print not having enough tolerance, 
+                        hole filling up, and deformation.
+                        <br>
+                        <br>
+                        While deciding on how to mount the finger units we first started with a rectangular wooden plate.
+                         It took multiple revisions to find the desired hole diameter to secure the finger to the wood 
+                         base. The first version was later changed to a better ergonomic-shaped base plate that 
+                         supported the wrist. However, we had trouble mounting all the electronics and sensors and 
+                         encasing them to protect them. The final version moved on from having a bottom plate and 
+                         changed to a top-plate-based design. The fingers were moved to be connected to the bottom 
+                         handle, and the electronics were encased perfectly inside the box-joint assembled top unit. 
+                         While the interior is protected, the sensors had dedicated windows allowing ease of data 
+                         collection.
+                    </p>
+                </span> 
+            </div>
+            <div class="col report-styling">
+                <span class="">
+                    <img class="report-img" src="images/cad1.png">
+                </span>
+            </div>
+        </div>
+        <!-- CAD IMAGES -->
+        <div class="row">
+            <div class="col report-styling">
+                <img class="report-img"2 src="images/cad2.png">
+            </div>
+            <div class="col report-styling">
+                <img class="report-img" src="images/cad3.png">
+            </div>
+        </div>
+
+	</body>
+</html>
