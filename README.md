@@ -8,7 +8,7 @@ This is the arduino file that runs the gauntlet.
 # Hack_Gauntlet.ino
 THIS FILE IS OLD. USE teamBEARCLASP_Arduinocode.ino file instead
 
-#README.md
+# README.md
 Info on each file
 
 
